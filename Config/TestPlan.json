@@ -1,0 +1,65 @@
+{
+  "UsedWorkerNumber": 2,
+  "CallFunctionTimeOut": 65000,
+  "TestPlan": [
+   {
+      "PlanName": "潜在客户压力测试计划",
+      "ImitationThreads": 1,
+      "InitingScript": "TestAssembly/TestPlanA/Init.js",
+      "Enable":"false",
+      "PlanCases": [
+        {
+          "IdentityName": "DataQuery1Test",
+          "TestDescription": "测试200100103界面的DataQuery请求",
+          "TestScriptName": "TestAssembly/TestPlanA/Shell_200100103.js",
+          "EntryPoint": "shell_200100103_DataQuery1"
+        },
+        {
+          "IdentityName": "LinqQuery1Test",
+          "TestDescription": "测试200100103界面的DataQuery的LinqData请求",
+          "TestScriptName": "TestAssembly/TestPlanA/Shell_200100103.js",
+          "EntryPoint": "shell_200100103_LinqQuery1"
+        }
+      ]
+    } ,
+    {
+      "PlanName": "251的003帐号检查数据测试",
+      "ImitationThreads": 500,
+      "InitingScript": "TestAssembly/TestPlanA/Init.js",
+      "PlanCases": [
+        {
+          "IdentityName": "DataQuery1Test_CheckDataValid",
+          "TestDescription": "测试200100103界面的DataQuery请求的数据正确性",
+          "TestScriptName": "TestAssembly/TestPlanA/Shell_200100103.js",
+          "EntryPoint": "shell_200100103_DataQuery1_CheckDataValid"
+        },
+        {
+          "IdentityName": "LinqQuery1Test_CheckDataValid",
+          "TestDescription": "测试200100103界面的DataQuery的LinqData请求数据正确性",
+          "TestScriptName": "TestAssembly/TestPlanA/Shell_200100103.js",
+          "EntryPoint": "shell_200100103_LinqQuery1_CheckDataValid"
+        }
+      ]
+    },
+    {
+      "PlanName": "251的085帐号检查数据测试",
+      "ImitationThreads": 500,
+      "InitingScript": "TestAssembly/TestPlanB/Init.js",
+      "PlanCases": [
+        {
+          "IdentityName": "DataQuery1Test_CheckDataValid",
+          "TestDescription": "测试200100103界面的DataQuery请求的数据正确性",
+          "TestScriptName": "TestAssembly/TestPlanB/Shell_200100103.js",
+          "EntryPoint": "shell_200100103_DataQuery1_CheckDataValid"
+        },
+        {
+          "IdentityName": "LinqQuery1Test_CheckDataValid",
+          "TestDescription": "测试200100103界面的DataQuery的LinqData请求数据正确性",
+          "TestScriptName": "TestAssembly/TestPlanB/Shell_200100103.js",
+          "EntryPoint": "shell_200100103_LinqQuery1_CheckDataValid"
+        }
+      ]
+    }
+
+  ]
+}

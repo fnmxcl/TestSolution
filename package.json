@@ -1,0 +1,37 @@
+{
+  "dependencies": {
+    "async": "^2.3.0",
+    "chai": "^3.5.0",
+    "chai-http": "^3.0.0",
+    "chai-webdriver": "^1.2.0",
+    "cluster": "^0.7.7",
+    "co": "^4.6.0",
+    "colors": "^1.1.2",
+    "express": "^4.15.2",
+    "fetch": "^1.1.0",
+    "fetch-cookie": "^0.6.0",
+    "http": "^0.0.0",
+    "jshint": "^2.9.4",
+    "linq": "^3.0.8",
+    "mocha": "^3.2.0",
+    "mocha-lcov-reporter": "^1.3.0",
+    "mochawesome": "^2.0.4",
+    "multer": "^1.3.0",
+    "node-fetch": "^1.6.3",
+    "path": "^0.12.7",
+    "q": "^1.5.0",
+    "request": "^2.81.0",
+    "require": "^2.4.20",
+    "selenium-webdriver": "^3.3.0",
+    "should": "^11.2.1",
+    "socket.io": "^1.7.3",
+    "superagent": "^3.5.2",
+    "supertest": "^3.0.0",
+    "thunkify": "^2.1.2",
+    "websocket": "^1.0.24",
+    "ws": "^2.2.3"
+  },
+  "devDependencies": {
+    "mochawesome": "^2.0.4"
+  }
+}

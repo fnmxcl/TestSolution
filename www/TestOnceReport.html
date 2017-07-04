@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TestSolution ONCE 测试报告</title>
+    <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css">
+
+    <script src="lib/jquery/dist/jquery.min.js"></script>
+    <script src="lib/angular/angular.js"></script>
+    <script src="lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="lib/bootstrap/js/button.js"></script>
+    <script src="lib/ngAnimate/js/angular-animate.min.js"></script>
+    <script src="//cdn.bootcss.com/angular-ui-bootstrap/0.11.2/ui-bootstrap-tpls.js"></script>
+    <script src="lib/chart.js/dist/Chart.js"></script>
+    <script src="lib/angular-chart.js/dist/angular-chart.js"></script>
+    <script src="lib/angular-linq/angular-linq.js"></script>
+    <script src="lib/echarts/dist/echarts.js"></script>
+
+    <script src="lib/ng-file-upload/ng-file-upload.js"></script>
+
+    <script src="./Model/main.js"></script>
+    <script src="./Controls/mainCtr.js"></script>
+    <script src="./Directives/directives.js"></script>
+
+</head>
+<body ng-app="mainApp">
+<loading class=" page-header "></loading>
+<div class="container" ng-controller="MainCtrl">
+<!--<div class="row">-->
+    <span class=" page-header badge pull-right">当前版本:v1.0</span>
+
+    <div class="page-header">
+        <h1>TestSolution  ONCE <small >{{ ContainsAllProcessReports.length >0 ? '当前有'+ContainsAllProcessReports.length+'个测试进程同时运行' :'等待服务端报告生成,或者选择文件生成...'}} </small></h1>
+    </div>
+
+    <div class="jumbotron" ng-if="ContainsAllProcessReports.length==0"  ng-show="!loading">
+        <A ngf-select="uploadFiles($file, $invalidFiles)" ng-model="file" name="file" ngf-max-size="20MB" ngf-min-height="100"  ><H2>正在等待服务端报告生成,或者选择文件生成...</H2></A>
+    </div>
+
+    <div  role="alert" ng-show="loading"  ng-class="{true: 'alert alert-danger', false: 'alert alert-warning'}[isError]">{{ !isError ? "正在读取文件中...": "出现错误"+ ErrorInfo +",请选择报告!"}}</div>
+    <A ngf-select="uploadFiles($file, $invalidFiles)" ng-model="file" name="file" ngf-max-size="20MB" ngf-min-height="100" class="glyphicon glyphicon-folder-open" style="Margin:10px" ng-if="isError">选择报告</A>
+    <div class="jumbotron" ng-repeat="item in ContainsAllProcessReports" ng-show="!loading">
+        <!--<div><h3>{{item.Pid}}</h3><h3>{{item.PlanName}}</h3></div>-->
+        <div class="navbar-right">
+            <i class="pull-right glyphicon glyphicon-sort-by-attributes" style="Margin:10px">并发次数:{{item.ImitationThreads}}</i>
+            <i class="pull-right glyphicon glyphicon-list-alt" style="Margin:10px">测试用例:{{item.TestCaseCounter.length}}</i>
+            <i class="pull-right glyphicon glyphicon-time" style="Margin:10px">整体平均:{{ (item.WholeAvgDrution / 1000) > 1 ? ((item.WholeAvgDrution/1000).toFixed(2)+ "s"): (item.WholeAvgDrution + "ms") }}</i></div>
+        <A NG-HREF="{{item.FileName}}"   download=""  class="glyphicon glyphicon-file" style="Margin:10px" ng-show="DownReportMark">下载报告</A>
+        <A ngf-select="uploadFiles($file, $invalidFiles)" ng-model="file" name="file" ngf-max-size="20MB" ngf-min-height="100" class="glyphicon glyphicon-folder-open" style="Margin:10px">选择报告</A>
+        <Test-Chart sourceitem="{{item}}"  screenType="ChartL"></Test-Chart>
+        <Test-Chart sourceitem="{{item}}" screenType="ChartB"></Test-Chart>
+        <!--<p class="lead">当前进程号:1345</p>-->
+        <!--<p><a class="btn btn-lg btn-success" href="#" role="button">Sign up today</a></p>-->
+        <!--<canvas  class="chart chart-line" chart-data="{ContainsAllProcessReports[$index].Data}"-->
+        <!--chart-labels="Contain" chart-series="{ContainsAllProcessReports[$index].series}"-->
+        <!--chart-options="{ContainsAllProcessReports[$index].options}"-->
+        <!--chart-click="onClick">-->
+        <!--</canvas>-->
+    </div>
+    <!--</div>-->
+
+</div>
+
+</body>
+</html>

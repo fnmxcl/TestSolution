@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TestSolution测试报告</title>
+    <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css">
+
+    <!--<script src="lib/jquery/dist/jquery.min.js"></script>-->
+    <!--<script src="lib/angular/angular.js"></script>-->
+    <!--<script src="lib/bootstrap/dist/js/bootstrap.min.js"></script>-->
+    <!--<script src="lib/bootstrap/js/button.js"></script>-->
+    <!--<script src="lib/ngAnimate/js/angular-animate.min.js"></script>-->
+    <!--<script src="//cdn.bootcss.com/angular-ui-bootstrap/0.11.2/ui-bootstrap-tpls.js"></script>-->
+    <!--<script src="lib/chart.js/dist/Chart.js"></script>-->
+    <!--<script src="lib/angular-chart.js/dist/angular-chart.js"></script>-->
+    <!--<script src="lib/angular-chart.js/dist/angular-chart.js"></script>-->
+
+
+    <!--<script src="./Model/main.js"></script>-->
+    <!--<script src="./Controls/mainCtr.js"></script>-->
+</head>
+<body >
+<script src="lib/requirejs/require.js" defer async="true"  data-main="MainRequire.js"></script>
+<div ng-controller="MainCtrl">
+    <div class="page-header">
+        <h1>测试统计信息 <small>{{TestReportsScreen.PlanName}}</small></h1>
+    </div>
+    <!--<button type="button" class="btn btn-default" ng-click="OnStartTest()">开始运行测试</button>-->
+    <canvas id="line" class="chart chart-line" chart-data="data"
+            chart-labels="labels" chart-series="series" chart-options="options"
+            chart-dataset-override="datasetOverride" chart-click="onClick">
+    </canvas>
+</div>
+</body>
+</html>
